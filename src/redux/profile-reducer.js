@@ -10,21 +10,21 @@ const initialState = {
       message: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat dolorem
                 consectetur itaque in. Magni aperiam incidunt unde consequuntur. Ad
                 vitae corporis laboriosam similique quam, necessitatibus veniam quis
-                porro atque! Veniam?`,
+                porro atque! Veniam?`
     },
     {
       id: 2,
       author: "Sarah Connor",
-      message: `Lorem ipsum dolor sit amet consectetur adipisicing elit.`,
+      message: `Lorem ipsum dolor sit amet consectetur adipisicing elit.`
     },
     {
       id: 3,
       author: "Alex Merphie",
       message: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat dolorem
-                consectetur itaque in. Magni aperiam incidunt unde consequuntur.`,
-    },
+                consectetur itaque in. Magni aperiam incidunt unde consequuntur.`
+    }
   ],
-  newPostText: "",
+  newPostText: ""
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -34,7 +34,7 @@ const profileReducer = (state = initialState, action) => {
       let newPost = {
         id: 4,
         author: "Kolya Bubkin",
-        message: state.newPostText,
+        message: state.newPostText
       };
 
       state.posts.push(newPost);
@@ -59,18 +59,18 @@ const profileReducer = (state = initialState, action) => {
 };
 
 export const addPostActionCreator = () => ({
-  type: ADD_POST,
+  type: ADD_POST
 });
 
-export const upateNewPostActionCreator = (text) => ({
+export const upateNewPostActionCreator = text => ({
   type: UPDATE_NEW_POST_TEXT,
-  newText: text,
+  newText: text
 });
 
 export const deletePostActionCreator = (author, id) => ({
   type: DEL_POST,
   author: author,
-  id: id,
+  id: id
 });
 
 export default profileReducer;

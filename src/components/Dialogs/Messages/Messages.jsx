@@ -7,7 +7,7 @@ class Messages extends Component {
     // debugger;
     let state = this.props.store.getState();
 
-    const messageElements = state.dialogsPage.messages.map((el) => (
+    const messageElements = state.dialogsPage.messages.map(el => (
       <MessagesLog message={el.message} type={el.type} key={el.id} />
     ));
 

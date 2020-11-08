@@ -5,7 +5,7 @@ class Visitors extends Component {
   render() {
     let state = this.props.store.getState();
 
-    const dialogElements = state.dialogsPage.dialogs.map((el) => (
+    const dialogElements = state.dialogsPage.dialogs.map(el => (
       <VisitorsElements author={el.author} id={el.id} key={el.id} />
     ));
 

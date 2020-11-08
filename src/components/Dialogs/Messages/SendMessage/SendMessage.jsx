@@ -9,7 +9,7 @@ class SendMessages extends Component {
       this.props.sendMessage();
     };
 
-    const onMessageChange = (e) => {
+    const onMessageChange = e => {
       let message = e.target.value;
       this.props.upateNewMessageValue(message);
     };

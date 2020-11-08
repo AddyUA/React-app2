@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {
   sendMessageActionCreator,
-  updateNewMessageActionCreator,
+  updateNewMessageActionCreator
 } from "../../../../redux/dialogs-reducer";
 import SendMessage from "./SendMessage";
 
@@ -11,7 +11,7 @@ class SendMessagesContainer extends Component {
       this.props.store.dispatch(sendMessageActionCreator());
     };
 
-    const onMessageChange = (message) => {
+    const onMessageChange = message => {
       let action = updateNewMessageActionCreator(message);
       this.props.store.dispatch(action);
     };
