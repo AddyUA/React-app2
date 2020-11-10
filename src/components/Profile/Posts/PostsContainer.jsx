@@ -1,23 +1,22 @@
-import React from "react";
+import { connect } from "react-redux";
+
 import Posts from "./Posts";
 import { deletePostActionCreator } from "../../../redux/profile-reducer";
-import StoreContext from "../../../StoreContext";
 
-const PostsContainer = (props) => {
-  // debugger;
-
-  return (
-    <StoreContext.Consumer>
-      {(store) => {
-        let state = store.getState();
-
-        const onDeletePost = (author, id) => {
-          store.dispatch(deletePostActionCreator(author, id));
-        };
-        return <Posts deletePostActionCreator={onDeletePost} state={state} />;
-      }}
-    </StoreContext.Consumer>
-  );
+const mapStatetoProps = state => {
+  return {
+    profilePage: state.profilePage
+  };
 };
+
+const mapDispatchToProps = dispatch => {
+  return {
+    deletePostActionCreator: (author, id) => {
+      dispatch(deletePostActionCreator(author, id));
+    }
+  };
+};
+
+const PostsContainer = connect(mapStatetoProps, mapDispatchToProps)(Posts);
 
 export default PostsContainer;

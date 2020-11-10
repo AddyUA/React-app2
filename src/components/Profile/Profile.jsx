@@ -3,16 +3,12 @@ import PostsContainer from "./Posts/PostsContainer";
 
 import ProfileHeaderContainer from "./ProfileHeader/ProfileHeaderContainer";
 
-const Profile = (props) => {
+const Profile = () => {
   // debugger;
   return (
     <div className="profile">
-      <ProfileHeaderContainer
-      // store={props.store}
-      />
-      <PostsContainer
-      // store={props.store}
-      />
+      <ProfileHeaderContainer />
+      <PostsContainer />
     </div>
   );
 };

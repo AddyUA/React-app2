@@ -1,39 +1,32 @@
-import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import ProfileHeader from "./ProfileHeader";
 import {
   addPostActionCreator,
-  upateNewPostActionCreator,
+  upateNewPostActionCreator
 } from "../../../redux/profile-reducer";
-import StoreContext from "../../../StoreContext";
 
-class ProfileHeaderContainer extends Component {
-  render() {
-    return (
-      <StoreContext.Consumer>
-        {(store) => {
-          // debugger;
-          let state = store.getState();
+const mapStatetoProps = state => {
+  return {
+    profilePage: state.profilePage
+  };
+};
 
-          const addPost = () => {
-            store.dispatch(addPostActionCreator());
-          };
+const mapDispatchToProps = dispatch => {
+  return {
+    upateNewPostActionCreator: text => {
+      let action = upateNewPostActionCreator(text);
+      dispatch(action);
+    },
+    addPostActionCreator: () => {
+      dispatch(addPostActionCreator());
+    }
+  };
+};
 
-          const onPostChange = (text) => {
-            //   debugger;
-            let action = upateNewPostActionCreator(text);
-            store.dispatch(action);
-          };
-          return (
-            <ProfileHeader
-              upateNewPostActionCreator={onPostChange}
-              addPostActionCreator={addPost}
-              state={state}
-            />
-          );
-        }}
-      </StoreContext.Consumer>
-    );
-  }
-}
+const ProfileHeaderContainer = connect(
+  mapStatetoProps,
+  mapDispatchToProps
+)(ProfileHeader);
 
 export default ProfileHeaderContainer;
