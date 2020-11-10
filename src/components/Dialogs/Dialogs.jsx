@@ -7,8 +7,12 @@ class Dialogs extends Component {
   render() {
     return (
       <div className="dialogs">
-        <Visitors store={this.props.store} />
-        <Messages store={this.props.store} />
+        <Visitors
+        // store={this.props.store}
+        />
+        <Messages
+        // store={this.props.store}
+        />
       </div>
     );
   }

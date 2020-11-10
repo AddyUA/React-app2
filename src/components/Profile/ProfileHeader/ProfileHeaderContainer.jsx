@@ -4,28 +4,34 @@ import {
   addPostActionCreator,
   upateNewPostActionCreator,
 } from "../../../redux/profile-reducer";
+import StoreContext from "../../../StoreContext";
 
 class ProfileHeaderContainer extends Component {
   render() {
-    // debugger;
-    let state = this.props.store.getState();
-
-    const addPost = () => {
-      this.props.store.dispatch(addPostActionCreator());
-    };
-
-    const onPostChange = (text) => {
-      //   debugger;
-      let action = upateNewPostActionCreator(text);
-      this.props.store.dispatch(action);
-    };
-
     return (
-      <ProfileHeader
-        upateNewPostActionCreator={onPostChange}
-        addPostActionCreator={addPost}
-        state={state}
-      />
+      <StoreContext.Consumer>
+        {(store) => {
+          // debugger;
+          let state = store.getState();
+
+          const addPost = () => {
+            store.dispatch(addPostActionCreator());
+          };
+
+          const onPostChange = (text) => {
+            //   debugger;
+            let action = upateNewPostActionCreator(text);
+            store.dispatch(action);
+          };
+          return (
+            <ProfileHeader
+              upateNewPostActionCreator={onPostChange}
+              addPostActionCreator={addPost}
+              state={state}
+            />
+          );
+        }}
+      </StoreContext.Consumer>
     );
   }
 }

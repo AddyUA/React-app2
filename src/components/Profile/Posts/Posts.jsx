@@ -1,8 +1,8 @@
 import React from "react";
 
-const Posts = props => {
+const Posts = (props) => {
   // debugger;
-  const PostsElements = props => {
+  const PostsElements = (props) => {
     return (
       <div className="post" id={`post-${props.id}`} ref={postElementTarget}>
         <div className="post__item">
@@ -23,7 +23,7 @@ const Posts = props => {
     );
   };
 
-  const postElement = props.state.profilePage.posts.map(el => (
+  const postElement = props.state.profilePage.posts.map((el) => (
     <PostsElements
       author={el.author}
       message={el.message}
@@ -35,6 +35,7 @@ const Posts = props => {
   const postElementTarget = React.createRef();
 
   const delPost = () => {
+    // debugger;
     let author = postElementTarget.current.firstChild.lastChild.innerText;
     // возвращает число из строки
     let id = parseInt(postElementTarget.current.id.match(/\d+/));

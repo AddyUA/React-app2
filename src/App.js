@@ -14,7 +14,9 @@ function App(props) {
       <div className="app-wrapper__content">
         <Switch>
           <Route exact path="/profile">
-            <Profile store={props.store} />
+            <Profile
+            // store={props.store}
+            />
           </Route>
           <Route path="/dialogs">
             <Dialogs store={props.store} />
